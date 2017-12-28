@@ -19,14 +19,14 @@ if __name__ == "__main__":
   for node in my_node_list:
     print("Node: "+str(node))
     print("Neighbors: ")
-    # Add the 4-directional neighbors
+    # Add the 8-connected neighbors
     for test_node in my_node_list:
       if test_node.x==node.x and (test_node.y==node.y+1 or test_node.y==node.y-1):
         node.neighbors.append(test_node)
-        print(test_node)
       if test_node.y==node.y and (test_node.x==node.x+1 or test_node.x==node.x-1):
         node.neighbors.append(test_node)
-        print(test_node)
+      if (test_node.x==node.x-1 or test_node.x==node.x+1) and (test_node.y==node.y+1 or test_node.y==node.y-1):
+        node.neighbors.append(test_node)
 
   # Make a dictionary for quick access by point
   my_node_dict = dict(zip(my_grid_list, my_node_list))
